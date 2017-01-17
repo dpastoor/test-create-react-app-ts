@@ -1,9 +1,14 @@
 import * as React from 'react';
 import './App.css';
-
+import ObservableCounter from './counter';
+import { observer } from 'mobx-react';
+import Buttons from './Button';
 const logo = require('./logo.svg');
 
-class App extends React.Component<null, null> {
+const counter = new ObservableCounter()
+
+@observer
+class App extends React.Component<{}, {}> {
   render() {
     return (
       <div className="App">
@@ -12,8 +17,9 @@ class App extends React.Component<null, null> {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
+          The counters value is: {counter.count}
         </p>
+        <Buttons counter={counter} />
       </div>
     );
   }

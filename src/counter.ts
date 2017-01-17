@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 
-export class ObservableCounter {
+export default class ObservableCounter {
    @observable count: number; 
    constructor(init: number = 0) {
        this.count = init;
